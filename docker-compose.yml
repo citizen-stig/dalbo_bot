@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  redis:
+    image: 'redis:4-alpine'
+    restart: always
+    networks:
+      - dalbo-bot
+
+  celery:
+    build: .
+    restart: always
+    depends_on:
+      - redis
+    env_file:
+      - celery.env
+    environment:
+      - CELERY_BROKER=redis://redis
+    networks:
+      - dalbo-bot
+
+
+networks:
+    dalbo-bot:

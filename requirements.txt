@@ -1,0 +1,5 @@
+markovify==0.7.1
+tweepy==3.5.0
+nltk==3.2.5
+celery==4.1.0
+redis==2.10.6
