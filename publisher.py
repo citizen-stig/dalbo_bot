@@ -13,7 +13,7 @@ app = Celery(
 )
 app.conf.beat_schedule = {
     'generate-tweets': {
-        'task': 'generate_tweets',
+        'task': 'publisher.generate_tweets',
         'schedule': crontab(hour=7,
                             minute=30,
                             day_of_week='mon,wed,thu,fri'),
